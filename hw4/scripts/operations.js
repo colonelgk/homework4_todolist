@@ -2,7 +2,7 @@ window.onload = function(){
     displayTask()
 }
 
-const greg = localStorage.getItem("tasks") ? JSON.parse(localStorage.getItem("tasks")): []
+const greg = sessionStorage.getItem("tasks") ? JSON.parse(sessionStorage.getItem("tasks")): []
 
 document.querySelector('#push').addEventListener("click",  () =>{
     const task = document.querySelector("#newtask input")
@@ -22,7 +22,7 @@ function createTask(task){
         return
     }
     greg.push(task.value)
-    localStorage.setItem("tasks", JSON.stringify(greg))
+    sesionStorage.setItem("tasks", JSON.stringify(greg))
     location.reload
 }
 
@@ -46,7 +46,7 @@ function displayTask(){
 }
 
 function clearAll(){
-    localStorage.clear('tasks')
+    sessionStorage.clear('tasks')
 }
 
 function deleteTask(){
@@ -58,7 +58,7 @@ function deleteTask(){
 
 function deleteOneTask(i){
     greg.splice(i, 1)
-    localStorage.setItem("tasks", JSON.stringify(greg))
+    sessionStorage.setItem("tasks", JSON.stringify(greg))
     location.reload()
 }
 
